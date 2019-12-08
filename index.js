@@ -16,5 +16,12 @@ passport.use(
     }
   )
 );
+app.get('/', (req,res)=>{
+  res.send('hi');
+});
+app.get('/auth/google/callback', passport.authenticate('google'));
+app.get('/auth/google',passport.authenticate('google',{
+  scope:['profile', 'email']
+}))
 const PORT = process.env.PORT || 50000;
 app.listen(PORT);
