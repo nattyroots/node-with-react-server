@@ -1,10 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
-require("./services/passport");
 const keys = require("./config/keys/keys");
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+require("./services/passport");
+require("./models/User")
+
 const app = express();
 require("./routs/authRoutes")(app);
+
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 const PORT = process.env.PORT || 50000;
 app.listen(PORT);
