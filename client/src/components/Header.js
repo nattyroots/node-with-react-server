@@ -7,9 +7,9 @@ class Header extends Component {
         <div className="nav-wrapper">
           <a className="left brand-logo">Emaily</a>
           <ul className="right">
-            <il>
+            <li>
               <a>Login With Google</a>
-            </il>
+            </li>
           </ul>
         </div>
       </nav>
