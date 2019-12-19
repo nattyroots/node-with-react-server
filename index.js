@@ -1,6 +1,7 @@
 const express = require("express");
 require("./models/User");
 require("./services/passport");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const keys = require("./config/keys/keys");
 const cookieSession = require("cookie-session");
@@ -16,7 +17,9 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.json());
 require("./routes/authRoutes")(app);
+require("./routes/billingRoutes")(app);
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
